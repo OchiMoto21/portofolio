@@ -1,0 +1,88 @@
+.grid-row-content {
+	height: 100vh;
+	display: grid;
+	grid-template-rows:
+	 min(var(--header-footer-height)) [content-start] min(calc(100% - calc(var(--header-footer-height) * 2)))  min(var(--header-footer-height)) [content-end];
+}
+.grid-row-content > * {
+	grid-row: content
+}
+
+.main {
+	display: grid;
+	/* height: 50vh; */
+	width: 100vw;
+	grid-template-columns:
+		[full-width-start] 
+		
+		minmax(2rem, 1fr)
+		
+		[break-out-start] 
+		
+		minmax(0, 100px)
+		
+		[content-start] 
+		
+		min(calc(100% - 4rem), 900px) 
+		
+		[content-end]
+		
+		minmax(0, 100px)
+    	
+		[break-out-end] 
+		
+		minmax(2rem, 1fr)
+		
+		[full-width-end];
+
+	position: relative;
+	/* height: calc(45vh - var(--header-footer-height)); */
+	/* margin-top: 2rem; */
+	/* overflow-x: hidden; */
+	/* overflow-y:scroll; */
+	
+
+}
+
+.main > * {
+	grid-column: content;
+	/* grid-row: content; */
+}
+
+.main > .full-width {
+	grid-column: full-width;
+}
+
+/* .main > .full-width-height {
+	grid-row: full-width;
+} */
+
+.main > .breakout {
+	grid-column: break-out;
+	/* grid-row: content; */
+
+}
+
+.flow > * {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+}
+
+@media (max-width: 1024px) {
+	.flow > * {
+		margin-top: 4rem;
+		margin-bottom: calc(var(--header-footer-height) + 2rem);		
+	}
+}
+
+@media (max-width: 768px) {
+
+	/* .main p {
+		font-size: 1rem;
+	} */
+
+	.flow > * {
+		margin-top: 5rem;
+		margin-bottom: calc(var(--header-footer-height) + 2rem);		
+	}
+}

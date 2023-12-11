@@ -1,0 +1,102 @@
+/* <style> */
+  @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=League+Spartan:wght@300;400&family=Montserrat:wght@400&family=Poppins:wght@400;600&display=swap');
+/* </style> */
+:root {
+	--main-font: 'Bebas Neue', sans-serif;
+	--secondary-font: 'Montserrat', sans-serif;
+	--header-footer-height: 80px;
+	--background-color: #1F1F1F;
+	--first-color:#3B3355;
+	--secondary-color: #2D4071;
+	--third-color: #8aaff491;
+	--font-color:#fffbfb;
+	--secondary-font-color: #c1c1c1;
+	--third-font-color: #1F1F1F;
+
+	--gradient: linear-gradient(90deg, var(--secondary-color) 25%, var(--third-color) 50%, var(--secondary-color) 75%);
+	--second-gradient: linear-gradient(90deg, #FDB054 0%, #ff6565 50%, #7829AF 100%);
+	--delay-wrapper-animation: 0.35s;
+	--signal-color: #202b42;
+}
+
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+	border-radius: 12px;
+	width: 10px;
+	/* margin-bottom: var(--header-footer-height); */
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgb(15, 15, 15); 
+	border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+	/* box-shadow: inset 0 0 5px black;  */
+	border-radius: 10px;
+	/* background-color: black; */
+  }
+
+body {
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--background-color);
+}
+
+h1 {
+	font-family: var(--main-font);
+	font-weight: bold;
+
+	/* font-weight: 300; */
+	/* line-height: 1; */
+	margin: 0;
+	color: var(--font-color);
+}
+
+h2 {
+	font-family: var(--main-font);
+	/* font-weight: 300; */
+	font-weight: bold;
+
+	line-height: 1.2;
+	margin: 0;
+	font-size: 3rem;
+	color: var(--font-color);
+}
+
+h3 {
+	font-family: var(--secondary-font);
+	font-weight: bold;
+	letter-spacing: 0.02rem;
+	line-height: 1.5;
+	margin: 0;
+	font-size: 0.875rem;
+	color: var(--font-color);
+}
+
+p {
+	font-family: var(--secondary-font);
+	margin: 0;
+	font-weight: 400;
+	font-size: .875rem;
+	line-height: 1.7;
+	color: var(--secondary-font-color);
+}
+
+a {
+	text-decoration: none;
+	color: var(--font-color);
+}
+
+@media (max-width:768px) {
+	:root {
+		--header-footer-height: 4rem;
+	}
+}
