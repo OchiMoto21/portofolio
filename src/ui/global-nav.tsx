@@ -27,7 +27,7 @@ export function GlobalNav(
             <div className={clsx(styles.sidebarContainer, {
                 [styles.sidebarContainerNotHome]: !isHome
             })}>
-                <div className={styles.title}>
+                <div className={styles.title} onClick={close}>
                     <Link href='/' onClick={() => onClick()}>
                         <h1>
                             Niken carolina

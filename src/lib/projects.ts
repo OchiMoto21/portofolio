@@ -68,7 +68,7 @@ export const projects:
                 url: "https://github.com/OchiMoto21/discord-ochi-chess-bot"
             }],
             technologies: [
-                "Node.js", "MongoDB", "GCP", "Heroku"
+                "Node.js", "MongoDB", "Discord API", "GCP", "Heroku"
             ]
         },
         {
@@ -77,7 +77,7 @@ export const projects:
             image: "/projects/portfolio.png",
             link : [{
                 media : "Github",
-                url: "https://github.com/OchiMoto21/discord-ochi-chess-bot"
+                url: "https://github.com/OchiMoto21/portofolio"
             }],
             technologies: [
                 "Next.js", "React","CSS"
