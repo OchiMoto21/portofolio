@@ -14,6 +14,8 @@ export default function Page() {
     const [imageIndex, setImageIndex] = useState(0);
     const [nextAfter, setNextAfter] = useState(styles[`after`]);
     const [nextBefore, setNextBefore] = useState(styles[`before`]);
+    const [visible, setVisible] = useState(false);
+    const [currentImage, setCurrentImage] = useState("");
 
     const handleNextClick = () => {
         setImageIndex((imageIndex + 1) % artworks.length);
@@ -27,33 +29,32 @@ export default function Page() {
         setNextBefore(styles[`before-next`]);
     }
 
+    const showImage = (src : string) => {
+        setVisible(!visible)
+        setCurrentImage(src)
+    }
 
     const itemList = artworks
         .map((item, index) => {
             console.log(index);
             return (
-                // <div key={index}>
-                // <Link key={index} href={item.slug} as="image" style={{position:"relative"}} className={styles.imageWrapper}>
-                <Image
-                    className={clsx({
-                        [styles.active]: index === imageIndex,
-                        [nextBefore]: index === (imageIndex - 1 + artworks.length) % artworks.length,
-                        [nextAfter]: index === (imageIndex + 1) % artworks.length,
-                        [styles.inactive]: !(index === imageIndex) && !(index === (imageIndex - 1 + artworks.length) % artworks.length) && !(index === (imageIndex + 1) % artworks.length)
-                    })}
-                    // sizes="500px"
-                    // width="100vw"
-                    priority
-                    fill
-                    sizes="100vw"
-                    alt={item.description}
-                    key={item.name}
-                    src={item.slug}
-                    // rel="preload"
-                    style={{ objectFit: 'cover', top: "0", left: "0" }}
-                />
-                // </Link>
-                // </div>
+                <div onClick={() => {showImage(item.slug)}}>
+                    <Image
+                        className={ clsx(styles['image-style'], {
+                            [styles.active]: index === imageIndex,
+                            [nextBefore]: index === (imageIndex - 1 + artworks.length) % artworks.length,
+                            [nextAfter]: index === (imageIndex + 1) % artworks.length,
+                            [styles.inactive]: !(index === imageIndex) && !(index === (imageIndex - 1 + artworks.length) % artworks.length) && !(index === (imageIndex + 1) % artworks.length)
+                        })}
+                        width={0}
+                        height={0}
+                        priority
+                        sizes="100vw"
+                        alt={item.description}
+                        key={item.name}
+                        src={item.slug}
+                    />
+                </div>
             )
         })
 
@@ -87,11 +88,28 @@ export default function Page() {
                             </button>
                         </div>
                     </div>
-                    {/* <div className={styles.imageContainer} style={{gridRow:1}}>
-
-                </div> */}
                 </section>
+
             </main>
+            {
+                visible && 
+                <div style={{display: 'flex', justifyContent: "center", alignItems: "center",position: 'absolute', top: 0, left: 0, height:"100%", width: "100%", backgroundColor: "rgba(0, 0, 0, 0.308)", zIndex:100, cursor:"zoom-out" }} onClick={() => showImage("")}>
+                    
+                    <div style={{maxWidth: "100%", maxHeight: "100%", aspectRatio:"16/9"}}>
+
+                    <Image
+                        style={{height: "100%",width :"100%", objectFit:"cover"}}
+                        // className={clsx(styles['image-style'])}
+                        width={0}
+                        height={0}
+                        priority
+                        sizes="100vw"
+                        alt={"Modal"}
+                        src={currentImage}
+                    />
+                    </div>
+                </div>
+            }
         </div>
     )
 }
