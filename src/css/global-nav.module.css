@@ -63,7 +63,7 @@
     position: absolute;
     height: 1px;
     width: 0%;
-    bottom: 0%;
+    bottom: 5%;
     right: 50%;
     background: var(--secondary-color);
     transition: width 0.2s;
@@ -74,7 +74,7 @@
     position: absolute;
     height: 1px;
     width: 0%;
-    bottom: 0%;
+    bottom: 5%;
     left: 50%;
     background: var(--secondary-color);
     transition: width 0.2s;
@@ -92,7 +92,11 @@
     display: none;
 }
 
-@media (max-width:768px){
+.mobile-menu {
+    display: none;
+}
+
+@media screen and (max-width:768px){
     .sidebarNotHome .container {
         display: none;
     }
